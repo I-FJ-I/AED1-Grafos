@@ -50,7 +50,7 @@ int escoger_nodo() {
     return elegido;
 }
 
-void dijkstra(int origen, int destino) {
+void dijkstra(int origen) {
     for (int i = 0; i < numero_nodos; i++) {
         D[i] = G[origen][i];
         P[i] = origen;
@@ -76,9 +76,9 @@ int main() {
     for (int i = 0; i < numero_casos; i++) {
         lee_grafo();
         int peso = 0;
-        dijkstra(inicio, paso);
+        dijkstra(inicio);
         peso += D[paso];
-        dijkstra(paso, fin);
+        dijkstra(paso);
         peso += D[fin];
         if (peso < INFINITO)
             cout << peso << endl;
